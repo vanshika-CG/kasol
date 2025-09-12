@@ -2,7 +2,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import enhancedHeroBg from '@/assets/enhanced-hero-bg.jpg';
+import enhancedHeroBg from '@/assets/hero-image.jpg';
+import kasolRollsBranding from '@/assets/kasol-rolls-branding.jpg';
 
 const Index = () => {
   const { scrollY } = useScroll();
@@ -26,73 +27,56 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/40 to-white/60" />
         </motion.div>
         
-        {/* Content */}
-        <div className="relative z-10 container-custom text-center px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-5xl mx-auto space-y-8"
-          >
-            {/* Main Heading */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-primary leading-tight">
-              Elevate Every Moment with{' '}
-              <span className="text-secondary">Kasol Rolls</span>
-            </h1>
-            
-            {/* Subheading */}
-            <motion.p 
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg sm:text-xl md:text-2xl text-primary/80 max-w-4xl mx-auto leading-relaxed font-medium"
-            >
-              Premium rolling papers crafted for urban culture and natural living
-            </motion.p>
-            
-            {/* CTA Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-            >
-              {/* Primary CTA */}
+        {/* Content Layout */}
+        <div className="relative z-10 container-custom flex items-center justify-between px-4">
+          {/* Image on the left */}
+          <div className="w-1/2">
+            <img
+              src={enhancedHeroBg}
+              alt="Premium hemp leaves and rolling papers"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Content Box on the right */}
+          <div className="w-1/2 flex items-center justify-end">
+            <div className="bg-black bg-opacity-70 text-white p-8 rounded-lg shadow-lg space-y-4">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                  Made for Perfect Ritual
+                </h1>
+                <p className="text-xl md:text-2xl text-yellow-400 font-semibold">
+                  Pioneering since 1991
+                </p>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex gap-4"
               >
                 <Button 
                   asChild 
                   size="lg" 
-                  className="bg-secondary hover:bg-secondary/90 text-secondary-foreground px-8 py-4 text-lg font-semibold shadow-premium"
-                  aria-label="Explore Kasol Rolls products"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 text-lg font-semibold"
                 >
-                  <Link to="/products">Explore Products</Link>
+                  <Link to="/products">Products</Link>
                 </Button>
-              </motion.div>
-              
-              {/* Secondary CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
                 <Button 
                   asChild 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground px-8 py-4 text-lg font-semibold transition-smooth"
-                  aria-label="Discover Kasol Rolls brand story"
+                  className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-6 py-3 text-lg font-semibold"
                 >
-                  <Link to="/about">Discover Our Story</Link>
+                  <Link to="/about">kasol Brand</Link>
                 </Button>
               </motion.div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         </div>
         
         {/* Decorative Bottom Wave */}
@@ -111,6 +95,38 @@ const Index = () => {
           <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
           />
           </svg>
+        </div>
+      </section>
+
+      {/* Branding Section */}
+      <section className="py-16 lg:py-24 bg-background">
+        <div className="container-custom px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto flex items-center gap-8"
+          >
+            {/* Image on the left */}
+            <div className="flex-shrink-0">
+              <img
+                src={kasolRollsBranding}
+                alt="Kasol Rolls premium rolling papers and packaging"
+                className="w-96 h-96 object-cover rounded-lg shadow-lg"
+              />
+            </div>
+
+            {/* Content on the right */}
+            <div className="flex-1 text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+                Premium Craftsmanship, Urban Soul
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                Kasol Rolls brings you the finest rolling papers, blending natural quality with the spirit of urban culture. Experience the difference in every roll.
+              </p>
+            </div>
+          </motion.div>
         </div>
       </section>
 
