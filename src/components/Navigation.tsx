@@ -9,9 +9,10 @@ const Navigation = () => {
 
   const navItems = [
     { name: 'Products Catalogue', path: '/products' },
-    { name: 'Creatives', path: '/creatives' },
-    { name: 'Distributors', path: '/distributors' },
+    // { name: 'Creatives', path: '/creatives' },
+    // { name: 'Distributors', path: '/distributors' },
     { name: 'About', path: '/about' },
+    { name: 'Contact Us', path: '/contact' },
   ];
 
   const closeMenu = () => setIsOpen(false);
