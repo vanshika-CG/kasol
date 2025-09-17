@@ -1,13 +1,37 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import enhancedHeroBg from '@/assets/hero-image.jpg';
 import kasolRollsBranding from '@/assets/kasol-rolls-branding.jpg';
+import productShowcase from '@/assets/product-showcase.jpg';
+import { ArrowRight, ExternalLink, Eye } from 'lucide-react';
 
 const Index = () => {
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 500], [0, 100]);
+
+  // Featured products for the homepage
+  const featuredProducts = [
+    {
+      id: 1,
+      name: 'Pre-Rolled Cones',
+      description: 'Premium pre-rolled cones made with organic hemp for the perfect smoke every time.',
+      image: productShowcase,
+    },
+    {
+      id: 2,
+      name: 'Rolling Papers',
+      description: 'Slow-burning rice and hemp blend papers with natural gum for flawless rolling.',
+      image: productShowcase,
+    },
+    {
+      id: 3,
+      name: 'Custom Pre-Rolled Cones',
+      description: 'Personalized pre-rolled cones with your brand or design - perfect for events and promotions.',
+      image: productShowcase,
+    },
+  ];
 
   return (
     <div>
@@ -72,7 +96,7 @@ const Index = () => {
                   size="lg"
                   className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
-                  <Link to="/about">kasol Brand</Link>
+                  <Link to="/contact">contact us</Link>
                 </Button>
               </motion.div>
             </div>
@@ -130,6 +154,90 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Featured Products Section */}
+      <section className="py-16 md:py-20 lg:py-28 bg-background">
+        <div className="container-custom">
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
+              Our Signature Collection
+            </h2>
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Discover our most popular products - crafted with precision and passion for the ultimate experience.
+            </p>
+          </motion.div>
+
+          {/* Featured Products Grid */}
+          <div className="grid md:grid-cols-3 gap-8">
+            {featuredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full shadow-soft hover:shadow-premium transition-smooth group relative">
+                  {/* View More Button - Top Right Corner - BROWN COLOR */}
+                  <div className="absolute top-3 right-3 z-20">
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Button 
+                        asChild 
+                        size="sm" 
+                        variant="ghost"
+                        className="w-8 h-8 p-0 bg-secondary/20 hover:bg-secondary/30 border border-secondary/40 rounded-full text-secondary shadow-md hover:shadow-lg transition-smooth"
+                      >
+                        <Link to="/products" className="p-1">
+                          <Eye className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </motion.div>
+                  </div>
+
+                  {/* Product Image */}
+                  <div className="aspect-square overflow-hidden rounded-t-lg relative">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-smooth"
+                    />
+                  </div>
+                  
+                  {/* Product Content */}
+                  <CardContent className="p-6 pt-0">
+                    <h3 className="text-xl font-semibold text-primary mb-3">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {product.description}
+                    </p>
+                  </CardContent>
+                  
+                  {/* Bottom View Details Button */}
+                  <CardFooter className="p-6 pt-0">
+                    <Button variant="secondary" className="w-full" asChild>
+                      <Link to="/products" className="flex items-center justify-center gap-2">
+                        View Details
+                        <ExternalLink className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Collaboration Section */}
       <section className="py-16 md:py-20 lg:py-32 bg-background">
         <div className="container-custom px-4">
@@ -164,7 +272,7 @@ const Index = () => {
                     Kasol Rolls brand. Let's create something extraordinary together.
                   </p>
                   <Button asChild variant="secondary" className="w-full text-sm md:text-base">
-                    <Link to="/creatives">Join the Tribe</Link>
+                    <Link to="/contact">Join the Tribe</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -188,7 +296,7 @@ const Index = () => {
                     innovation, and community. Let's grow together.
                   </p>
                   <Button asChild variant="secondary" className="w-full text-sm md:text-base">
-                    <Link to="/distributors">Contact Us</Link>
+                    <Link to="/contact">Contact Us</Link>
                   </Button>
                 </CardContent>
               </Card>
