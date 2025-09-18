@@ -1,37 +1,54 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
 import enhancedHeroBg from '@/assets/hero-image.jpg';
 import kasolRollsBranding from '@/assets/kasol-rolls-branding.jpg';
 import productShowcase from '@/assets/product-showcase.jpg';
-import { ArrowRight, ExternalLink, Eye } from 'lucide-react';
+import { ArrowRight, ExternalLink, Eye, X } from 'lucide-react';
+import { useState } from 'react';
 
 const Index = () => {
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 500], [0, 100]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Featured products for the homepage
   const featuredProducts = [
     {
       id: 1,
       name: 'Pre-Rolled Cones',
-      description: 'Premium pre-rolled cones made with organic hemp for the perfect smoke every time.',
+      description: 'Premium pre-rolled cones made with organic hemp for the perfect smoke every time. Each cone is meticulously crafted to ensure a smooth, consistent burn and superior flavor preservation.',
       image: productShowcase,
     },
     {
       id: 2,
       name: 'Rolling Papers',
-      description: 'Slow-burning rice and hemp blend papers with natural gum for flawless rolling.',
+      description: 'Slow-burning rice and hemp blend papers with natural gum for flawless rolling. Designed for the discerning smoker who appreciates quality and craftsmanship in every detail.',
       image: productShowcase,
     },
     {
       id: 3,
       name: 'Custom Pre-Rolled Cones',
-      description: 'Personalized pre-rolled cones with your brand or design - perfect for events and promotions.',
+      description: 'Personalized pre-rolled cones with your brand or design - perfect for events and promotions. Elevate your brand with our premium customization options that make every cone unforgettable.',
       image: productShowcase,
     },
   ];
+
+  const handleViewDetails = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const closeModal = () => {
+    setSelectedProduct(null);
+  };
 
   return (
     <div>
@@ -224,11 +241,15 @@ const Index = () => {
                   
                   {/* Bottom View Details Button */}
                   <CardFooter className="p-6 pt-0">
-                    <Button variant="secondary" className="w-full" asChild>
-                      <Link to="/products" className="flex items-center justify-center gap-2">
+                    <Button 
+                      variant="secondary" 
+                      className="w-full" 
+                      onClick={() => handleViewDetails(product)}
+                    >
+                      <span className="flex items-center justify-center gap-2">
                         View Details
                         <ExternalLink className="h-4 w-4" />
-                      </Link>
+                      </span>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -237,6 +258,62 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Details Modal */}
+      <Dialog open={!!selectedProduct} onOpenChange={closeModal}>
+        <DialogContent className="sm:max-w-[425px] p-0 max-h-[90vh] overflow-y-auto">
+          <DialogHeader className="p-6 pb-4 border-b">
+            <div className="flex items-center justify-between">
+              <DialogTitle className="text-2xl font-bold text-primary">
+                {selectedProduct?.name}
+              </DialogTitle>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="w-8 h-8 p-0 rounded-full hover:bg-muted"
+                onClick={closeModal}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            <DialogDescription className="text-sm text-muted-foreground mt-2">
+              Premium quality crafted for the perfect ritual
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="p-6">
+            <div className="aspect-square w-full rounded-lg overflow-hidden mb-4">
+              <img
+                src={selectedProduct?.image}
+                alt={selectedProduct?.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            <div className="space-y-4">
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                {selectedProduct?.description}
+              </p>
+              
+              <div className="flex gap-3">
+                <Button 
+                  asChild 
+                  className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  <Link to="/products">Explore Collection</Link>
+                </Button>
+                <Button 
+                  variant="outline"
+                  className="flex-1"
+                  onClick={closeModal}
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Collaboration Section */}
       <section className="py-16 md:py-20 lg:py-32 bg-background">
