@@ -50,6 +50,15 @@ const Index = () => {
     setSelectedProduct(product);
   };
 
+  const handleViewMore = (path) => {
+    // Scroll to top before navigating
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Small delay to ensure smooth scroll completes before navigation
+    setTimeout(() => {
+      window.location.href = path;
+    }, 300);
+  };
+
   const closeModal = () => {
     setSelectedProduct(null);
   };
@@ -117,7 +126,7 @@ const Index = () => {
                   size="lg"
                   className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
-                  <Link to="/rolling-papers">Rolling Papers</Link>
+                  <Link to="/contact">Contact us</Link>
                 </Button>
               </motion.div>
             </div>
@@ -212,14 +221,12 @@ const Index = () => {
                       transition={{ duration: 0.2 }}
                     >
                       <Button 
-                        asChild 
                         size="sm" 
                         variant="ghost"
                         className="w-8 h-8 p-0 bg-secondary/20 hover:bg-secondary/30 border border-secondary/40 rounded-full text-secondary shadow-md hover:shadow-lg transition-smooth"
+                        onClick={() => handleViewMore(product.path)}
                       >
-                        <Link to={product.path} className="p-1">
-                          <Eye className="h-4 w-4" />
-                        </Link>
+                        <Eye className="h-4 w-4" />
                       </Button>
                     </motion.div>
                   </div>
@@ -238,24 +245,22 @@ const Index = () => {
                     <h3 className="text-xl font-semibold text-primary mb-3">
                       {product.name}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {product.description}
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {product.description.substring(0, 100)}...
                     </p>
                   </CardContent>
                   
                   {/* Bottom View Details Button */}
                   <CardFooter className="p-6 pt-0">
                     <Button 
-                      asChild
+                      onClick={() => handleViewDetails(product)}
                       variant="secondary" 
                       className="w-full" 
                     >
-                      <Link to={product.path}>
-                        <span className="flex items-center justify-center gap-2">
-                          Explore Collection
-                          <ExternalLink className="h-4 w-4" />
-                        </span>
-                      </Link>
+                      <span className="flex items-center justify-center gap-2">
+                        View Details
+                        <ArrowRight className="h-4 w-4" />
+                      </span>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -303,10 +308,10 @@ const Index = () => {
               
               <div className="flex gap-3">
                 <Button 
-                  asChild 
+                  onClick={() => handleViewMore(selectedProduct?.path)}
                   className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  <Link to={selectedProduct?.path || '/pre-rolled-cones'}>Explore Collection</Link>
+                  View Collection
                 </Button>
                 <Button 
                   variant="outline"
