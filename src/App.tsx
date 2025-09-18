@@ -16,7 +16,7 @@ import Products from "./pages/Products";
 // import Creatives from "./pages/Creatives";
 // import Distributors from "./pages/Distributors";
 import About from "./pages/About";
-import Contact from "./pages/Contact";
+import Contact from "./pages/contact";
 import NotFound from "./pages/NotFound";
 import PreRolledCones from './pages/PreRolledCones';
 import RollingPapers from './pages/RollingPapers';
