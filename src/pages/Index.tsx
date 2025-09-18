@@ -1,6 +1,6 @@
 // index.tsx
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
@@ -20,6 +20,7 @@ const Index = () => {
   const { scrollY } = useScroll();
   const backgroundY = useTransform(scrollY, [0, 500], [0, 100]);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const navigate = useNavigate();
 
   // Featured products for the homepage
   const featuredProducts = [
@@ -51,11 +52,9 @@ const Index = () => {
   };
 
   const handleViewMore = (path) => {
-    // Scroll to top before navigating
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    // Small delay to ensure smooth scroll completes before navigation
     setTimeout(() => {
-      window.location.href = path;
+      navigate(path); // ✅ This works on Netlify
     }, 300);
   };
 
