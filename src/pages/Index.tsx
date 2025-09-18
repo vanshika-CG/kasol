@@ -1,5 +1,6 @@
+// index.tsx
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import {
@@ -27,18 +28,21 @@ const Index = () => {
       name: 'Pre-Rolled Cones',
       description: 'Premium pre-rolled cones made with organic hemp for the perfect smoke every time. Each cone is meticulously crafted to ensure a smooth, consistent burn and superior flavor preservation.',
       image: productShowcase,
+      path: '/pre-rolled-cones'
     },
     {
       id: 2,
       name: 'Rolling Papers',
       description: 'Slow-burning rice and hemp blend papers with natural gum for flawless rolling. Designed for the discerning smoker who appreciates quality and craftsmanship in every detail.',
       image: productShowcase,
+      path: '/rolling-papers'
     },
     {
       id: 3,
       name: 'Custom Pre-Rolled Cones',
       description: 'Personalized pre-rolled cones with your brand or design - perfect for events and promotions. Elevate your brand with our premium customization options that make every cone unforgettable.',
       image: productShowcase,
+      path: '/pre-rolled-cones'
     },
   ];
 
@@ -105,7 +109,7 @@ const Index = () => {
                   size="lg" 
                   className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
-                  <Link to="/products">Products</Link>
+                  <Link to="/pre-rolled-cones">Explore Cones</Link>
                 </Button>
                 <Button 
                   asChild 
@@ -113,7 +117,7 @@ const Index = () => {
                   size="lg"
                   className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
-                  <Link to="/contact">contact us</Link>
+                  <Link to="/rolling-papers">Rolling Papers</Link>
                 </Button>
               </motion.div>
             </div>
@@ -201,7 +205,7 @@ const Index = () => {
                 viewport={{ once: true }}
               >
                 <Card className="h-full shadow-soft hover:shadow-premium transition-smooth group relative">
-                  {/* View More Button - Top Right Corner - BROWN COLOR */}
+                  {/* View More Button - Top Right Corner */}
                   <div className="absolute top-3 right-3 z-20">
                     <motion.div
                       whileHover={{ scale: 1.05 }}
@@ -213,7 +217,7 @@ const Index = () => {
                         variant="ghost"
                         className="w-8 h-8 p-0 bg-secondary/20 hover:bg-secondary/30 border border-secondary/40 rounded-full text-secondary shadow-md hover:shadow-lg transition-smooth"
                       >
-                        <Link to="/products" className="p-1">
+                        <Link to={product.path} className="p-1">
                           <Eye className="h-4 w-4" />
                         </Link>
                       </Button>
@@ -242,14 +246,16 @@ const Index = () => {
                   {/* Bottom View Details Button */}
                   <CardFooter className="p-6 pt-0">
                     <Button 
+                      asChild
                       variant="secondary" 
                       className="w-full" 
-                      onClick={() => handleViewDetails(product)}
                     >
-                      <span className="flex items-center justify-center gap-2">
-                        View Details
-                        <ExternalLink className="h-4 w-4" />
-                      </span>
+                      <Link to={product.path}>
+                        <span className="flex items-center justify-center gap-2">
+                          Explore Collection
+                          <ExternalLink className="h-4 w-4" />
+                        </span>
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -300,7 +306,7 @@ const Index = () => {
                   asChild 
                   className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground"
                 >
-                  <Link to="/products">Explore Collection</Link>
+                  <Link to={selectedProduct?.path || '/pre-rolled-cones'}>Explore Collection</Link>
                 </Button>
                 <Button 
                   variant="outline"

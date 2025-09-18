@@ -18,6 +18,8 @@ import Products from "./pages/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import PreRolledCones from './pages/PreRolledCones';
+import RollingPapers from './pages/RollingPapers';
 
 const queryClient = new QueryClient();
 
@@ -175,6 +177,8 @@ const App = () => {
                 <Route path="/products" element={<Products />} />
                 {/* <Route path="/creatives" element={<Creatives />} />
                 <Route path="/distributors" element={<Distributors />} /> */}
+                <Route path="/pre-rolled-cones" element={<PreRolledCones />} />
+        <Route path="/rolling-papers" element={<RollingPapers />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />

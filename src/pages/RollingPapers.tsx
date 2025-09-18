@@ -1,46 +1,52 @@
-// pages/Products.tsx
+// pages/RollingPapers.tsx
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import productShowcase from '@/assets/product-showcase.jpg';
 
-const Products = () => {
+const RollingPapers = () => {
   const products = [
     {
       id: 1,
       name: 'Classic Kasol Papers',
-      description: 'Traditional rolling papers with premium hemp blend for the perfect roll.',
+      description: 'Traditional rice and hemp blend rolling papers with natural gum arabic. Slow-burning with ultra-thin construction for pure flavor experience.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
     {
       id: 2,
-      name: 'Hemp Blend Rolls',
-      description: 'Eco-friendly hemp papers with natural fibers and slow burn technology.',
+      name: 'Hemp Blend Papers',
+      description: '100% organic hemp rolling papers with eco-friendly packaging. Naturally slow-burning with minimal taste interference and smooth rolling texture.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
     {
       id: 3,
       name: 'Urban Culture Series',
-      description: 'Limited edition papers featuring artist collaborations and unique designs.',
+      description: 'Limited edition rolling papers featuring artist collaborations. Premium hemp base with unique designs celebrating urban culture and street art.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
     {
       id: 4,
-      name: 'Premium Filter Tips',
-      description: 'Handcrafted filter tips made from sustainable materials for enhanced experience.',
+      name: 'King Size Slim Papers',
+      description: 'Extra-long, ultra-thin rolling papers for larger joints. Precision-cut with natural gum for easy sealing and consistent burning performance.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
     {
       id: 5,
-      name: 'Kasol Rolling Tray',
-      description: 'Elegant bamboo rolling tray with magnetic compartments and premium finish.',
+      name: 'Flavored Rice Papers',
+      description: 'Delicate rice papers infused with natural fruit flavors. Lightweight construction with subtle taste enhancement for a refined smoking ritual.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
     {
       id: 6,
-      name: 'Grinder Collection',
-      description: 'Precision-engineered grinders with sharp teeth and smooth operation.',
+      name: 'Gold Leaf Papers',
+      description: 'Luxury gold-embossed rolling papers with premium hemp core. Elegant design with slow-burning properties for sophisticated smoking occasions.',
       image: productShowcase,
+      category: 'Rolling Papers'
     },
   ];
 
@@ -55,10 +61,10 @@ const Products = () => {
           className="text-center mb-12 md:mb-16"
         >
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6">
-            Our Products
+            Rolling Papers
           </h1>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Curated selection of premium rolling papers and accessories for the modern connoisseur.
+            Premium rolling papers crafted for the discerning smoker. Natural materials, slow-burning performance, and artistic designs for the perfect roll.
           </p>
         </motion.div>
 
@@ -95,9 +101,27 @@ const Products = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Collection Info */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="text-center mt-16 p-8 bg-muted/50 rounded-lg"
+        >
+          <h3 className="text-xl font-semibold text-primary mb-4">Craft Your Perfect Roll</h3>
+          <p className="text-muted-foreground mb-4">
+            Each pack contains 50 premium rolling papers, individually wrapped for freshness. 
+            Perfect for personal use or gifting to fellow enthusiasts.
+          </p>
+          <Button asChild variant="outline" size="lg">
+            <a href="/contact">Wholesale Inquiry</a>
+          </Button>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default Products;
+export default RollingPapers;

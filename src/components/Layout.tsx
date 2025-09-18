@@ -1,3 +1,4 @@
+// components/Layout.tsx
 import { ReactNode } from 'react';
 import Navigation from './Navigation';
 import Footer from './Footer';
@@ -11,7 +12,7 @@ const Layout = ({ children }: LayoutProps) => {
   useLenis();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <Navigation />
       <main className="flex-1 pt-16">
         {children}
