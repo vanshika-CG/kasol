@@ -50,6 +50,30 @@ const RollingPapers = () => {
     },
   ];
 
+  const customProducts = [
+    {
+      id: 1,
+      name: 'Custom Logo Papers',
+      description: 'Personalized rolling papers featuring your brand logo. Perfect for events, promotions, and corporate gifting with premium hemp construction.',
+      image: productShowcase,
+      category: 'Custom Rolling Papers'
+    },
+    {
+      id: 2,
+      name: 'Bulk Custom Papers',
+      description: 'High-volume custom rolling papers for distributors and retailers. Custom packaging options available with your branding and specifications.',
+      image: productShowcase,
+      category: 'Custom Rolling Papers'
+    },
+    {
+      id: 3,
+      name: 'Event Branded Papers',
+      description: 'Specially designed rolling papers for music festivals, trade shows, and corporate events. Quick turnaround with full customization options.',
+      image: productShowcase,
+      category: 'Custom Rolling Papers'
+    },
+  ];
+
   return (
     <div className="py-16 md:py-24 lg:py-32 bg-background">
       <div className="container-custom">
@@ -68,55 +92,116 @@ const RollingPapers = () => {
           </p>
         </motion.div>
 
-        {/* Product Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {products.map((product, index) => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-            >
-              <Card className="h-full shadow-soft hover:shadow-premium transition-smooth">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 md:h-64 object-cover rounded-t-lg"
-                />
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-muted-foreground text-sm md:text-base">
-                    {product.description}
-                  </p>
-                </CardContent>
-                <CardFooter>
-                  <Button variant="secondary" className="w-full">
-                    View Details
-                  </Button>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
+        {/* Standard Products Grid */}
+        <div className="mb-16">
+          <h2 className="text-2xl font-semibold text-primary mb-8 text-center">
+            Standard Collection
+          </h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {products.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full shadow-soft hover:shadow-premium transition-smooth">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 md:h-64 object-cover rounded-t-lg"
+                  />
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-primary mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      {product.description}
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button
+                      variant="outline"
+                      className="w-full border-2 border-[#8B5C2A] text-[#8B5C2A] hover:bg-[#8B5C2A]/10"
+                    >
+                      View Details
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
         </div>
 
-        {/* Collection Info */}
+        {/* Custom Products Section */}
+        <div className="mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-2xl font-semibold text-primary mb-4">
+              Custom Rolling Papers
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Looking for personalized branding? Explore our custom paper options for events, promotions, and corporate gifting.
+            </p>
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {customProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="h-full shadow-soft hover:shadow-premium transition-smooth">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-48 md:h-64 object-cover rounded-t-lg"
+                  />
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold text-primary mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-muted-foreground text-sm md:text-base">
+                      {product.description}
+                    </p>
+                  </CardContent>
+                  <CardFooter>
+                    <Button
+                      variant="outline"
+                      className="w-full border-2 border-[#8B5C2A] text-[#8B5C2A] hover:bg-[#8B5C2A]/10"
+                    >
+                      View Details
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Custom Quote CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
-          className="text-center mt-16 p-8 bg-muted/50 rounded-lg"
+          className="text-center p-8 bg-muted/50 rounded-lg"
         >
-          <h3 className="text-xl font-semibold text-primary mb-4">Craft Your Perfect Roll</h3>
+          <h3 className="text-xl font-semibold text-primary mb-4">Need a Custom Order?</h3>
           <p className="text-muted-foreground mb-4">
-            Each pack contains 50 premium rolling papers, individually wrapped for freshness. 
-            Perfect for personal use or gifting to fellow enthusiasts.
+            Contact us for bulk pricing, special customization, and personalized consultation.
           </p>
           <Button asChild variant="outline" size="lg">
-            <a href="/contact">Wholesale Inquiry</a>
+            <a href="/contact">Get Custom Quote</a>
           </Button>
         </motion.div>
       </div>

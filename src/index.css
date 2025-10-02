@@ -5,17 +5,19 @@
 
 @layer base {
   :root {
-    --brand-dark-green: 120 100% 20%;
+    /* Brand Colors */
+    --brand-dark-green: 165 41% 23%; /* #235347 */
     --brand-brown: 25 60% 31%;
     --brand-white: 0 0% 100%;
     
+    /* Semantic Colors */
     --background: 0 0% 100%;
     --foreground: 0 0% 20%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --primary: 120 100% 20%;
+    --primary: 165 41% 23%;          /* Updated to #235347 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 25 60% 31%;
@@ -26,7 +28,7 @@
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 120 100% 20%;
+    --ring: 165 41% 23%;             /* Updated to match primary */
 
     --radius: 0.5rem;
 

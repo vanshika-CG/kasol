@@ -114,7 +114,10 @@ const PreRolledCones = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full">
+                    <Button
+                      variant="outline"
+                      className="w-full border-2 border-[#8B5C2A] text-[#8B5C2A] hover:bg-[#8B5C2A]/10"
+                    >
                       View Details
                     </Button>
                   </CardFooter>
