@@ -47,7 +47,7 @@ const Index = () => {
   return (
     <div>
       {/* Enhanced Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[80vh] sm:min-h-[90vh] md:h-screen flex items-center justify-center overflow-hidden">
         {/* Background with Parallax Effect */}
         <motion.div 
           className="absolute inset-0"
@@ -63,7 +63,7 @@ const Index = () => {
         </motion.div>
         
         {/* Content Layout */}
-        <div className="relative z-10 container-custom flex flex-col md:flex-row items-center justify-between px-4 md:px-8">
+        <div className="relative z-10 container-custom flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 md:px-8">
           {/* Image on the left */}
           <div className="w-full md:w-1/2 mb-6 md:mb-0">
             <img
@@ -75,16 +75,16 @@ const Index = () => {
 
           {/* Content Box on the right */}
           <div className="w-full md:w-1/2 flex items-center justify-center md:justify-end">
-            <div className="bg-black bg-opacity-70 text-white p-6 md:p-8 rounded-lg shadow-lg space-y-4 max-w-md w-full">
+            <div className="bg-black bg-opacity-70 text-white p-4 sm:p-6 md:p-8 rounded-lg shadow-lg space-y-4 max-w-md w-full">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                   Made for Perfect Ritual
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl text-yellow-400 font-semibold mt-2">
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-yellow-400 font-semibold mt-2">
                   Pioneering since 1991
                 </p>
               </motion.div>
@@ -97,7 +97,7 @@ const Index = () => {
                 <Button 
                   asChild 
                   size="lg" 
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black px-4 py-2 text-sm sm:text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
                   <Link to="/pre-rolled-cones">Explore Cones</Link>
                 </Button>
@@ -105,9 +105,9 @@ const Index = () => {
                   asChild 
                   variant="outline" 
                   size="lg"
-                  className="border-2 border-yellow-400 text-black hover:bg-yellow-400 hover:text-black px-4 py-2 text-base md:text-lg font-semibold w-full sm:w-auto"
+                  className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-4 py-2 text-sm sm:text-base md:text-lg font-semibold w-full sm:w-auto"
                 >
-                  <Link to="/contact">Contact us</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </motion.div>
             </div>
@@ -118,7 +118,7 @@ const Index = () => {
             <svg 
               viewBox="0 0 1200 120" 
               preserveAspectRatio="none" 
-              className="relative block w-full h-12 md:h-16 fill-background"
+              className="relative block w-full h-8 sm:h-12 md:h-16 fill-background"
             >
               <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" 
                 opacity=".25"
@@ -133,30 +133,30 @@ const Index = () => {
       </section>
 
       {/* Branding Section */}
-      <section className="py-12 md:py-16 lg:py-24 bg-background">
-        <div className="container-custom px-4">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-24 bg-background">
+        <div className="container-custom px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-6 md:gap-8"
+            className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-6 sm:gap-8"
           >
             {/* Image */}
             <div className="flex-shrink-0 w-full md:w-1/2">
               <img
                 src={kasolRollsBranding}
                 alt="Kasol Rolls premium rolling papers and packaging"
-                className="w-full max-w-sm md:max-w-md h-auto object-cover rounded-lg shadow-lg mx-auto"
+                className="w-full max-w-[300px] sm:max-w-[400px] md:max-w-md h-auto object-cover rounded-lg shadow-lg mx-auto"
               />
             </div>
 
             {/* Content */}
             <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-primary mb-4">
                 Premium Craftsmanship, Urban Soul
               </h2>
-              <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed">
                 Kasol Rolls brings you the finest rolling papers, blending natural quality with the spirit of urban culture. Experience the difference in every roll.
               </p>
             </div>
@@ -165,26 +165,26 @@ const Index = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 md:py-20 lg:py-28 bg-background">
-        <div className="container-custom">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-28 bg-background">
+        <div className="container-custom px-4 sm:px-6 md:px-8">
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-bold text-primary mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 sm:mb-6">
               Our Signature Collection
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Discover our most popular products - crafted with precision and passion for the ultimate experience.
             </p>
           </motion.div>
 
           {/* Featured Products Grid */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {featuredProducts.map((product, index) => (
               <motion.div
                 key={product.id}
@@ -221,20 +221,20 @@ const Index = () => {
                   </div>
                   
                   {/* Product Content */}
-                  <CardContent className="p-6 pt-0">
-                    <h3 className="text-xl font-semibold text-primary mb-3">
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <h3 className="text-lg sm:text-xl font-semibold text-primary mb-2 sm:mb-3">
                       {product.name}
                     </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
+                    <p className="text-muted-foreground leading-relaxed text-xs sm:text-sm">
                       {product.description.substring(0, 100)}...
                     </p>
                   </CardContent>
                   
                   {/* Bottom View Collection Button */}
-                  <CardFooter className="p-6 pt-0">
+                  <CardFooter className="p-4 sm:p-6 pt-0">
                     <Button 
                       onClick={() => handleViewMore(product.path)}
-                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-sm sm:text-base"
                     >
                       <span className="flex items-center justify-center gap-2">
                         View Collection
@@ -250,21 +250,21 @@ const Index = () => {
       </section>
 
       {/* Collaboration Section */}
-      <section className="py-16 md:py-20 lg:py-32 bg-background">
-        <div className="container-custom px-4">
+      <section className="py-12 sm:py-16 md:py-20 lg:py-32 bg-background">
+        <div className="container-custom px-4 sm:px-6 md:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-12 md:mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-primary mb-4">
+            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-primary mb-4">
               Let's Collaborate
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
             {/* Creatives Card */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -273,16 +273,16 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <Card className="h-full shadow-soft hover:shadow-premium transition-smooth">
-                <CardContent className="p-6 md:p-8 h-full flex flex-col">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-4 md:mb-6">
+                <CardContent className="p-4 sm:p-6 md:p-8 h-full flex flex-col">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-4 sm:mb-6">
                     Creatives
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-8 flex-1 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-4 sm:mb-6 md:mb-8 flex-1 leading-relaxed">
                     Got a passion for urban culture and a flair for the creative? We're always 
                     on the lookout for unique talents who can bring fresh perspectives to the 
                     Kasol Rolls brand. Let's create something extraordinary together.
                   </p>
-                  <Button asChild variant="secondary" className="w-full text-sm md:text-base">
+                  <Button asChild variant="secondary" className="w-full text-sm sm:text-base">
                     <Link to="/contact">Join the Tribe</Link>
                   </Button>
                 </CardContent>
@@ -297,16 +297,16 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <Card className="h-full shadow-soft hover:shadow-premium transition-smooth">
-                <CardContent className="p-6 md:p-8 h-full flex flex-col">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-primary mb-4 md:mb-6">
+                <CardContent className="p-4 sm:p-6 md:p-8 h-full flex flex-col">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-semibold text-primary mb-4 sm:mb-6">
                     Distributors
                   </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-muted-foreground mb-6 md:mb-8 flex-1 leading-relaxed">
+                  <p className="text-xs sm:text-sm md:text-base lg:text-lg text-muted-foreground mb-4 sm:mb-6 md:mb-8 flex-1 leading-relaxed">
                     Interested in bringing the Kasol Rolls experience to a broader audience? 
                     We're seeking distribution partners who share our commitment to quality, 
                     innovation, and community. Let's grow together.
                   </p>
-                  <Button asChild variant="secondary" className="w-full text-sm md:text-base">
+                  <Button asChild variant="secondary" className="w-full text-sm sm:text-base">
                     <Link to="/contact">Contact Us</Link>
                   </Button>
                 </CardContent>
