@@ -1,73 +1,153 @@
-# Welcome to your Lovable project
+# 🌿 Kasol Rolls — Premium Brand Website
 
-## Project info
+**Kasol Rolls** is a luxury digital experience built for a heritage rolling paper brand pioneering since 1991.
+The platform showcases organic hemp pre-rolled cones and slow-burning rice & hemp blend rolling papers through an immersive, modern web interface.
 
-**URL**: https://lovable.dev/projects/b4473e80-a856-4f34-adac-362a8d30dce2
+---
 
-## How can I edit this code?
+## 🌿 About Kasol Rolls
 
-There are several ways of editing your application.
+Kasol Rolls is a premium rolling products brand known for its craftsmanship, authenticity, and urban soul.
+The website reflects its legacy while delivering a contemporary, high-end user experience.
 
-**Use Lovable**
+### 🧾 Product Lines
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b4473e80-a856-4f34-adac-362a8d30dce2) and start prompting.
+#### 🔸 Pre-Rolled Cones
 
-Changes made via Lovable will be committed automatically to this repo.
+Premium cones crafted from organic hemp, ensuring:
 
-**Use your preferred IDE**
+* Consistent burn
+* Smooth draw
+* Enhanced flavor preservation
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+#### 📜 Rolling Papers
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+High-quality rolling papers made from a rice & hemp blend:
 
-Follow these steps:
+* Slow-burning composition
+* Natural gum adhesive
+* Designed for purity and performance
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+#### 🎨 Custom Pre-Rolled Cones
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Personalized cones tailored for:
 
-# Step 3: Install the necessary dependencies.
-npm i
+* Events & promotions
+* Brand collaborations
+* Custom prints and packaging
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## ✨ Website Features
+
+| Feature                  | Description                                                        |
+| ------------------------ | ------------------------------------------------------------------ |
+| 🏠 Enhanced Hero         | Immersive hero section with parallax effects and storytelling      |
+| 🛍️ Signature Collection | Interactive product grid with smooth hover animations              |
+| 🤝 Collaboration Hub     | Dedicated sections for creatives & distributors                    |
+| ℹ️ Brand Narrative       | Pages detailing heritage and craftsmanship                         |
+| 📱 Responsive Design     | Mobile-first, fully responsive layouts                             |
+| 🎞️ Smooth Experience    | Scroll animations and transitions powered by Framer Motion & Lenis |
+
+---
+
+## 🗺️ Site Architecture
+
+```mermaid
+graph TD
+    A[🌐 App Entry] --> B[Layout Wrapper]
+    B --> C[Navigation & Footer]
+    B --> D[React Router Routes]
+
+    D --> E[🏠 Index/Home]
+    D --> F[🔸 Pre-Rolled Cones]
+    D --> G[📜 Rolling Papers]
+    D --> H[ℹ️ About]
+    D --> I[📬 Contact]
+
+    E --> J[Hero Parallax]
+    E --> K[Product Grid]
+    E --> L[Collaboration Cards]
+```
+
+---
+
+## 🛠️ Tech Stack
+
+* **Framework:** React 18 + TypeScript
+* **Build Tool:** Vite 5
+* **Styling:** Tailwind CSS, shadcn-ui, Lucide React
+* **Animations:** Framer Motion, Lenis (smooth scrolling)
+* **State Management:** TanStack Query (React Query)
+* **Routing:** React Router DOM
+
+---
+
+## 📁 Project Structure
+
+```plaintext
+src/
+├── assets/          # Brand imagery (hero, product visuals, branding)
+├── components/      # Reusable UI components & layout
+│   ├── ui/          # shadcn-ui primitives
+│   └── Navigation.tsx
+├── hooks/           # Custom hooks (useLenis, useMobile, etc.)
+├── pages/           # Route views (Home, About, Contact, Products)
+└── lib/             # Utility functions and styling helpers
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/kasol-rolls.git
+cd kasol-rolls
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Run Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 4. Build for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+```
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🎨 Design Philosophy
 
-## What technologies are used for this project?
+Kasol Rolls blends:
 
-This project is built with:
+* 🌿 Natural authenticity
+* 🏙️ Urban luxury
+* 🎯 Product precision
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The UI emphasizes:
 
-## How can I deploy this project?
+* Minimalism with depth
+* Smooth motion & tactile feedback
+* Story-driven brand presentation
 
-Simply open [Lovable](https://lovable.dev/projects/b4473e80-a856-4f34-adac-362a8d30dce2) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## 📜 License
 
-Yes, you can!
+This project is proprietary and developed for Kasol Rolls.
+All rights reserved © 2026.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+**Kasol Rolls — Crafted for the Perfect Ritual 🌿**
