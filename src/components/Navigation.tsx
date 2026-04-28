@@ -22,12 +22,12 @@ const Navigation = () => {
   console.log('Current location:', location.pathname);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="container-custom">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <NavLink to="/" className="text-xl md:text-2xl font-bold text-primary hover:opacity-90 transition-smooth">
-            Kasol Rolls
+          <NavLink to="/" className="text-xl md:text-2xl font-bold text-jiwa-green hover:opacity-90 transition-smooth">
+            Kasol
           </NavLink>
 
           {/* Desktop Navigation */}
@@ -38,7 +38,7 @@ const Navigation = () => {
                 to={item.path}
                 className={({ isActive }) =>
                   `text-sm font-medium transition-smooth ${
-                    isActive ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                    isActive ? 'text-jiwa-green font-semibold' : 'text-gray-700 hover:text-jiwa-green'
                   }`
                 }
               >
@@ -66,7 +66,7 @@ const Navigation = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="md:hidden border-t border-border bg-background py-4 space-y-4"
+              className="md:hidden border-t border-gray-200 bg-white py-4 space-y-4"
             >
               {navItems.map((item) => (
                 <NavLink
@@ -76,8 +76,8 @@ const Navigation = () => {
                   className={({ isActive }) =>
                     `block px-4 py-2 text-sm font-medium transition-smooth rounded-md ${
                       isActive 
-                        ? 'bg-primary/10 text-primary font-semibold' 
-                        : 'text-foreground hover:text-primary hover:bg-muted'
+                        ? 'bg-jiwa-green/10 text-jiwa-green font-semibold' 
+                        : 'text-gray-700 hover:text-jiwa-green hover:bg-gray-50'
                     }`
                   }
                 >

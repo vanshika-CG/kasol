@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 import productShowcase from '@/assets/product-showcase.jpg';
 
 const Products = () => {
@@ -45,7 +46,7 @@ const Products = () => {
   ];
 
   return (
-    <div className="py-16 md:py-24 lg:py-32 bg-background">
+    <div className="py-16 md:py-24 lg:py-32 bg-white">
       <div className="container-custom">
         {/* Header */}
         <motion.div
@@ -54,11 +55,11 @@ const Products = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4 md:mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-jiwa-green mb-4 md:mb-6">
             Our Products
           </h1>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto">
-            Curated selection of premium rolling papers and accessories for the modern connoisseur.
+          <p className="text-base md:text-lg text-gray-700 max-w-3xl mx-auto">
+            Premium rolling papers and accessories crafted with precision and passion for the ultimate experience.
           </p>
         </motion.div>
 
@@ -79,16 +80,18 @@ const Products = () => {
                   className="w-full h-48 md:h-64 object-cover rounded-t-lg"
                 />
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
+                  <h3 className="text-xl font-semibold text-jiwa-green mb-2">
                     {product.name}
                   </h3>
-                  <p className="text-muted-foreground text-sm md:text-base">
+                  <p className="text-gray-600 text-sm md:text-base">
                     {product.description}
                   </p>
                 </CardContent>
                 <CardFooter>
-                  <Button variant="secondary" className="w-full">
-                    View Details
+                  <Button variant="outline" className="w-full border-jiwa-green text-jiwa-green hover:bg-jiwa-green hover:text-white" asChild>
+                    <Link to={`/product/${product.id}`}>
+                      View Details
+                    </Link>
                   </Button>
                 </CardFooter>
               </Card>

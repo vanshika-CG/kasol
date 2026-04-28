@@ -23,14 +23,14 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         
-        // Brand Colors
-        'dark-green': "hsl(var(--brand-dark-green))",
-        'brand-brown': "hsl(var(--brand-brown))",
-        'brand-white': "hsl(var(--brand-white))",
+        // Jiwa-inspired Green Colors
+        'jiwa-green': "#005d45",
+        'jiwa-light-green': "#2a7f6a",
+        'jiwa-dark-green': "#003d2f",
         
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#005d45",
+          foreground: "#ffffff",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

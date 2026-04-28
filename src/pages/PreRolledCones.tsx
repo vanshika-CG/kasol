@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 import productShowcase from '@/assets/product-showcase.jpg';
 
 const PreRolledCones = () => {
@@ -117,8 +118,11 @@ const PreRolledCones = () => {
                     <Button
                       variant="outline"
                       className="w-full border-2 border-[#8B5C2A] text-[#8B5C2A] hover:bg-[#8B5C2A]/10"
+                      asChild
                     >
-                      View Details
+                      <Link to={`/product/${product.id + 6}`}>
+                        View Details
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>
@@ -168,8 +172,10 @@ const PreRolledCones = () => {
                     </p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full">
-                      View Details
+                    <Button variant="outline" className="w-full" asChild>
+                      <Link to={`/product/${product.id + 11}`}>
+                        View Details
+                      </Link>
                     </Button>
                   </CardFooter>
                 </Card>

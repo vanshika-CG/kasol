@@ -11,15 +11,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
-import Index from "./pages/Index";
+import Index from "./pages/Index-Jiwa-Style";
 import Products from "./pages/Products";
 // import Creatives from "./pages/Creatives";
 // import Distributors from "./pages/Distributors";
-import About from "./pages/About";
+import About from "./pages/About-Jiwa-Style";
 import Contact from "./pages/contact";
 import NotFound from "./pages/NotFound";
-import PreRolledCones from './pages/PreRolledCones';
+import PreRolledCones from './pages/PreRolledCones-Jiwa-Style';
 import RollingPapers from './pages/RollingPapers';
+import ProductDetail from './pages/ProductDetail';
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/rolling-papers" element={<RollingPapers />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
